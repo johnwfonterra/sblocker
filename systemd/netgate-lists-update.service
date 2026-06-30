@@ -1,0 +1,9 @@
+[Unit]
+Description=Netgate Blocklist Update
+Wants=netgate-lists-update.timer
+
+[Service]
+Type=oneshot
+ExecStart=/opt/netgate/venv/bin/python /opt/netgate/lists/update_lists.py
+# Reload dnsmasq after updating hosts file
+ExecStartPost=/bin/systemctl reload dnsmasq

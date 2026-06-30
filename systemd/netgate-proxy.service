@@ -1,0 +1,15 @@
+[Unit]
+Description=Netgate MITM Proxy (mitmproxy)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/netgate/proxy/start.sh
+Restart=always
+RestartSec=5
+User=root
+Environment=PROXY_PORT=8080
+
+[Install]
+WantedBy=multi-user.target

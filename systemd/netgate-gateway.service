@@ -1,0 +1,12 @@
+[Unit]
+Description=Netgate Gateway (iptables + NAT)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/netgate/gateway/setup-iptables.sh
+
+[Install]
+WantedBy=multi-user.target
